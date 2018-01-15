@@ -1,0 +1,124 @@
+.home-section-1{
+    padding:0;
+    height: 100vh;
+    background: url('https://cdn.colorlib.com/shapely/wp-content/uploads/sites/12/2016/03/photo-1443527216320-7e744084f5a7-1.jpg') center no-repeat;
+    background-size:cover;
+}
+.home-section-1 .box{
+    position: absolute;
+    width: 100%;
+    top: 36%;
+    z-index: 1;
+    text-align: center
+}
+.home-section-1 .box h1{
+    margin-bottom: 24px;
+    font-size: 68px;
+    color: #fff;
+    text-align: center;
+    font-weight: 300;
+}
+.home-section-1 .box p{
+    margin-bottom: 32px;
+    color: #fff;
+    font-weight: 300
+}
+.home-section-1 .btn-box a{
+    display: inline-block;
+    width: 200px;
+    height: 54px;
+    line-height: 50px;
+    color: #fff;
+    border: 2px solid #745cf9;
+    box-sizing: border-box;
+}
+.home-section-1 .btn-box .btn-white{
+    border-color: #fff;
+}
+.home-section-1 .btn-box .btn-white:hover{
+    background-color: #fff;
+    color: #000;
+}
+.home-section-1 .btn-box .btn-more{
+    background-color: #745cf9;
+}
+.home-section-1 .btn-box .btn-more:hover{
+    border-color:#5d47d7;
+    background-color: #5d47d7;
+}
+
+.home-section-2 .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.home-section-2 .img-box{
+    position: relative;
+    float: left;
+    width: 58%;
+}
+.home-section-2 .img-box img{
+    margin: auto;
+    width:652px;
+}
+.home-section-2 .text-box{
+    float: left;
+    width: 42%;
+}
+.home-section-2 .text-box .wrap{
+    float: right;
+    width: 360px;
+}
+.home-section-2 .text-box h3{
+    margin-bottom: 24px;
+    font-size: 30px;
+    line-height: 33px;
+    color: #0e1015;
+}
+.home-section-2 .text-box p{
+    margin-bottom: 24px;
+    color: #8c979e;
+    font-weight: 300
+}
+.home-section-2 .text-box a{
+    display: block;
+    width: 200px;
+    height: 54px;
+    line-height: 50px;
+    color: #fff;
+    border: 2px solid #745cf9;
+    background-color: #745cf9;
+    box-sizing: border-box;
+    text-align: center;
+}   
+.home-section-2 .text-box a:hover{
+    background-color: #5d47d7;
+    border-color:#5d47d7
+}
+
+.no-mode-translate-demo-wrapper {
+    position: absolute;
+    margin-left: -21px;
+    width: 30px;
+    height: 20px;
+    bottom: 25px;
+    left: 50%;
+    z-index: 2;
+  }
+  .no-mode-translate-demo-wrapper button {
+    position: absolute;
+    width: 30px;
+    height: 20px;
+  }
+  .no-mode-translate-fade-enter-active, .no-mode-translate-fade-leave-active {
+    transition: all 1s;
+  }
+  .no-mode-translate-fade-enter, .no-mode-translate-fade-leave-active {
+    opacity: 0;
+  }
+  .no-mode-translate-fade-enter {
+    transform: translateX(31px);
+  }
+  .no-mode-translate-fade-leave-active {
+    transform: translateX(-31px);
+  }
