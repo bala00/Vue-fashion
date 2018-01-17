@@ -30,7 +30,7 @@
 export default {
   data () {
     return {
-      logo:"Fashion",
+      logo: 'Fashion',
       // isLogin: false,
       navLists: [
         { name: 'HOME', url: '/' },
@@ -40,7 +40,7 @@ export default {
         { name: 'SHOP', url: '/shop' }
       ],
 
-      footerText:'vue demo with webpack name Fashion'
+      footerText: 'vue demo with webpack name Fashion'
     }
   }
 }

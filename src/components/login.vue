@@ -18,7 +18,7 @@
     import qs from 'qs'
     import Vue from 'vue'
 
-    const STORAGE_KEY = 'fashion';
+    const STORAGE_KEY = 'fashion'
 
     export default {
         name: 'Login',
@@ -33,8 +33,7 @@
         methods: {
             inputFunc:function(){
                 var regMobile = document.getElementById("mobile"),
-                    mobile = regMobile.value;
-                
+                    mobile = regMobile.value
                 if(mobile.length == 11){
                     this.$ajax({
                         method: 'post',
@@ -45,26 +44,24 @@
                     }).then(function(response) {
                         // success
                         if(response.data.code){
-                            alert(response.data.msg);
+                            alert(response.data.msg)
                         }
-                    });
+                    })
                 }
             },
             onSubmit: function(event) {
-            
-                var formData = JSON.stringify(this.user); // 表单数据
+                var formData = JSON.stringify(this.user) // 表单数据
 
                 if(this.user.mobile == "" || this.user.mobile == null || this.user.mobile.length < 11){
-                    alert('请输入11位手机号');
-                    return false;
+                    alert('请输入11位手机号')
+                    return false
                 }
-                
-                if(this.user.password == "" || this.user.password == null || this.user.password.length < 3){
-                    alert('请输入3位密码');
-                    return false;
+                if( this.user.password == "" || this.user.password == null || this.user.password.length < 3){
+                    alert('请输入3位密码')
+                    return false
                 }
 
-                window.localStorage.setItem(STORAGE_KEY, JSON.stringify(this.user.mobile));
+                window.localStorage.setItem(STORAGE_KEY, JSON.stringify(this.user.mobile))
 
                 this.$ajax({
                     method: 'post',
@@ -74,22 +71,20 @@
                         password: this.user.password
                     })
                 }).then(function(response) {
-
-                    
                     // console.log('session',session);
-                    console.log('locals.islogin',response);
+                    console.log('locals.islogin', response)
 
                     // success
                     if(response.data.code){
-                        alert(response.data.msg);
-                    }else{
+                        alert(response.data.msg)
+                    } else {
                         if(response.status == 200){
                             alert('登录成功！')
-                        }else{
+                        } else {
                             alert('登录失败')
                         }
                     }
-                });
+                })
             }
         }
     }

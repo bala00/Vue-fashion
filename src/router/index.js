@@ -44,11 +44,12 @@ export default new Router({
       path: '/register',
       name: 'Register',
       component: Register
-    },{
+    },
+    {
       path: '/user',
       name: 'User',
       component: User,
-      meta:{auth:true}
+      meta: {auth: true}
     }
   ]
 })

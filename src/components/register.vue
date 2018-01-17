@@ -17,37 +17,32 @@
     <script>
         import qs from 'qs'
         import Vue from 'vue'
-    
-        const STORAGE_KEY = 'fashion';
-    
+        const STORAGE_KEY = 'fashion'
         export default {
             name: 'Login',
             data () {
                 return {
-                    user:{
-                        mobile: JSON.parse(window.localStorage.getItem(STORAGE_KEY))|| '',
+                    user: {
+                        mobile: JSON.parse(window.localStorage.getItem(STORAGE_KEY)) || '',
                         password: ''
                     }
                 }
             },
             methods: {
-                
                 // return event.keyCode>=48&&event.keyCode<=57) || (event.keyCode>=65&&event.keyCode<=90))
                 onSubmit: function(event) {
-                
-                    var formData = JSON.stringify(this.user); // 表单数据
+                    var formData = JSON.stringify(this.user) // 表单数据
 
                     if(this.user.mobile == "" || this.user.mobile == null || this.user.mobile.length < 11){
-                        alert('请输入11位手机号');
-                        return false;
+                        alert('请输入11位手机号')
+                        return false
                     }
-                    
                     if(this.user.password == "" || this.user.password == null || this.user.password.length < 3){
-                        alert('请输入3位密码');
-                        return false;
+                        alert('请输入3位密码')
+                        return false
                     }
 
-                    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(this.user.mobile));
+                    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(this.user.mobile))
 
                     this.$ajax({
                         method: 'post',
@@ -60,16 +55,15 @@
                         // success
                         // console.log('response-->',response);
                         if(response.data.code){
-                            alert(response.data.msg);
+                            alert(response.data.msg)
                         }else{
                             if(response.status == 200){
                                 alert('注册成功！')
-                            }else{
+                            } else {
                                 alert('注册失败')
                             }
                         }
-                        
-                    });
+                    })
                 }
             }
         }

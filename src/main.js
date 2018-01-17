@@ -6,7 +6,6 @@ import router from './router'
 import axios from 'axios'
 import _ from 'lodash'
 
-
 Vue.prototype.$ajax = axios
 
 // import Vue from 'vue'  //vue从node_modules中取该框架中有关Vue的东西
@@ -22,4 +21,4 @@ new Vue({
   router,
   template: '<App/>',
   components: { App }
-});
+})

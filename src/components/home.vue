@@ -38,33 +38,32 @@
       </div>
 </template>
 
+<!-- 该写法是vue.js中推荐的写法 -->
 <script>
-  //该写法是vue.js中推荐的写法
+  const outInSrc = 'https://cdn.colorlib.com/shapely/wp-content/uploads/sites/12/2016/03/macbook-preview-flexible.png'
 
-const outInSrc="https://cdn.colorlib.com/shapely/wp-content/uploads/sites/12/2016/03/macbook-preview-flexible.png";
+  export default {
+    name: 'Home',
+    data () {
+      return {
+        homeSectionBG: 'https://cdn.colorlib.com/shapely/wp-content/uploads/sites/12/2016/03/photo-1443527216320-7e744084f5a7-1.jpg',
+        sectionTitle: 'We Change Everything WordPress',
 
-export default {
-  name: 'Home',
-  data () {
-    return {
-      homeSectionBG:'https://cdn.colorlib.com/shapely/wp-content/uploads/sites/12/2016/03/photo-1443527216320-7e744084f5a7-1.jpg',
-      sectionTitle:'We Change Everything WordPress',
-
-      fadeSrc: outInSrc,
-      on: true
-    }
-  },
-  watch: {
-    // 如果 `on` 发生改变，这个函数就会运行
-    on: function (e) {
-      if(e){
-        this.fadeSrc = outInSrc;
-      }else{
-        this.fadeSrc = '/static/img/macbook-preview-flexible.584dce2.png'
+        fadeSrc: outInSrc,
+        on: true
+      }
+    },
+    watch: {
+      // 如果 `on` 发生改变，这个函数就会运行
+      on: function (e) {
+        if (e) {
+          this.fadeSrc = outInSrc
+        } else {
+          this.fadeSrc = '/static/img/macbook-preview-flexible.584dce2.png'
+        }
       }
     }
   }
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

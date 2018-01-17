@@ -30,22 +30,39 @@
   <script>
     
     export default {
-        name: 'About',
-        data () {
-          return {
-            cells: Array.apply(null, {length : 81}).map(function(_, index) {
-              return {
-                  id: index,
-                  number : index % 9 + 1
-              }
-            })
-          }
-        },
-        methods: {　　
-          shuffle: function () {
-            this.cells = _.shuffle(this.cells)
-          }
+      name: 'About',
+      data () {
+        return {
+          cells: Array.apply(null, {length: 81}).map(function(_, index) {
+            return {
+              id: index,
+              number: index % 9 + 1
+            }
+          })
         }
+      },
+      mounted: function () {
+        this.$nextTick(function () {
+          // Code that will run only after the
+          // entire view has been rendered
+
+          let self = this
+          if (self && !self._isDestroyed) {
+            setTimeout(() => {
+              if(self && !self._isDestroyed){
+                self.getDeployList()
+                console.log('true-self:', self)
+              }
+            }, 5000)
+          }
+          console.log('if-self:', self)
+        })
+      },
+      methods: {
+        shuffle: function () {
+          this.cells = _.shuffle(this.cells)
+        }
+      }
     }
   </script>
   
