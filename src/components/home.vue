@@ -59,7 +59,7 @@
         if (e) {
           this.fadeSrc = outInSrc
         } else {
-          this.fadeSrc = '/static/img/macbook-preview-flexible.584dce2.png'
+          this.fadeSrc = '/src/public/image/macbook-preview-flexible.png'
         }
       }
     }

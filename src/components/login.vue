@@ -16,7 +16,7 @@
   
 <script>
     import qs from 'qs'
-    import Vue from 'vue'
+    // import Vue from 'vue'
 
     const STORAGE_KEY = 'fashion'
 
@@ -25,16 +25,16 @@
         data () {
             return {
                 user:{
-                    mobile: JSON.parse(window.localStorage.getItem(STORAGE_KEY))|| '',
+                    mobile: JSON.parse(window.localStorage.getItem(STORAGE_KEY)) || '',
                     password: ''
                 }
             }
         },
         methods: {
-            inputFunc:function(){
-                var regMobile = document.getElementById("mobile"),
+            inputFunc: function() {
+                var regMobile = document.getElementById('mobile'),
                     mobile = regMobile.value
-                if(mobile.length == 11){
+                if (mobile.length == 11) {
                     this.$ajax({
                         method: 'post',
                         url: '/api/user/checkUser',
@@ -43,20 +43,20 @@
                         })
                     }).then(function(response) {
                         // success
-                        if(response.data.code){
+                        if (response.data.code) {
                             alert(response.data.msg)
                         }
                     })
                 }
             },
             onSubmit: function(event) {
-                var formData = JSON.stringify(this.user) // 表单数据
+                // var formData = JSON.stringify(this.user) // 表单数据
 
-                if(this.user.mobile == "" || this.user.mobile == null || this.user.mobile.length < 11){
+                if (this.user.mobile == '' || this.user.mobile == null || this.user.mobile.length < 11) {
                     alert('请输入11位手机号')
                     return false
                 }
-                if( this.user.password == "" || this.user.password == null || this.user.password.length < 3){
+                if (this.user.password == '' || this.user.password == null || this.user.password.length < 3) {
                     alert('请输入3位密码')
                     return false
                 }
@@ -71,27 +71,24 @@
                         password: this.user.password
                     })
                 }).then(function(response) {
-                    // console.log('session',session);
-                    console.log('locals.islogin', response)
-
                     // success
-                    if(response.data.code){
-                        alert(response.data.msg)
+                    if (response.data.code) {
+                      alert(response.data.msg)
                     } else {
-                        if(response.status == 200){
-                            alert('登录成功！')
+                        if (response.status == 200) {
+                          alert('登录成功！')
                         } else {
-                            alert('登录失败')
+                          alert('登录失败')
                         }
                     }
                 })
             }
         }
     }
-  </script>
+</script>
   
-  <!-- Add "scoped" attribute to limit CSS to this component only -->
-  <style scoped>
-    @import '../public/css/login.css';
-  </style>
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+@import '../public/css/login.css';
+</style>
       

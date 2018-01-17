@@ -2,6 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/home'
 import About from '@/components/about'
+import Project from '@/components/project'
+import Blog from '@/components/blog'
+import Shop from '@/components/shop'
 import Login from '@/components/login'
 import Register from '@/components/register'
 import User from '@/components/user'
@@ -22,18 +25,18 @@ export default new Router({
     },
     {
       path: '/project',
-      name: 'About',
-      component: About
+      name: 'Project',
+      component: Project
     },
     {
       path: '/blog',
-      name: 'About',
-      component: About
+      name: 'Blog',
+      component: Blog
     },
     {
       path: '/shop',
-      name: 'About',
-      component: About
+      name: 'Shop',
+      component: Shop
     },
     {
       path: '/login',

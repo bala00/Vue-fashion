@@ -4,9 +4,6 @@
         <div class="container clearfix">
           <h3>About The Fashion</h3>
           <div class="shuffle">
-            <button @click="shuffle">
-              Shuffle
-            </button>
             <transition-group name="cell" tag="div" class="sudoku-container">
               <div v-for="cell in cells" :key="cell.id" class="cell">
                 {{ cell.number }}
@@ -26,9 +23,9 @@
   <!-- Array.apply(null, { length: 81 }) :生成一个长度为81的数组，没赋值，所以都是undefined -->
   <!-- map: 用于使用指定函数处理数组中的每个元素(或对象的每个属性)，并将处理结果封装为新的数组返回 -->
   
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"></script>
   <script>
-    
+    import _ from 'lodash'
     export default {
       name: 'About',
       data () {
@@ -46,22 +43,18 @@
           // Code that will run only after the
           // entire view has been rendered
 
-          let self = this
-          if (self && !self._isDestroyed) {
-            setTimeout(() => {
-              if(self && !self._isDestroyed){
-                self.getDeployList()
-                console.log('true-self:', self)
-              }
-            }, 5000)
-          }
-          console.log('if-self:', self)
+          this.shuffle = setInterval(() => {
+            this.cells = _.shuffle(this.cells)
+          }, 3000)
         })
       },
       methods: {
-        shuffle: function () {
-          this.cells = _.shuffle(this.cells)
-        }
+        // shuffle: function () {
+          // this.cells = _.shuffle(this.cells)
+        // }
+      },
+      destroyed: function () {
+        clearInterval(this.shuffle)
       }
     }
   </script>
