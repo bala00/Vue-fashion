@@ -1,0 +1,32 @@
+svg { display: block; float: left; }
+polygon { fill: #41B883; }/* 把rgb颜色填充到当前元素内 */
+/* 
+    XML-CSS下有四种语法方式：
+    1、fill:rgb(0,0,255);：把rgb颜色填充到当前元素内
+    2、fill:#ffffff;：把十六进制颜色填充到当前元素内
+    3、fill:blue;： 把文字型颜色填充到当前元素内
+    4、fill:url(../sdf.gif);： 把图片填充到当前元素内
+    XML-ATTR下有对应的五种语法格式：
+    前四种，只需要改变一下写法，fill="blue"，
+    5、fill="url(#grad1)"：把上文绘制好的id为grad1的图片填充到当前元素内。 
+*/
+circle {
+    fill: transparent;
+    stroke: #35495E;/* stroke属性定义一条线，文本或元素轮廓颜色： */
+    /* 
+        stroke- width属性定义了一条线，文本或元素轮廓厚度;
+        strokelinecap属性定义不同类型的开放路径的终结;
+        strokedasharray属性用于创建虚线;
+    */
+}
+.range-btn{
+    float: left;
+    margin-left: 30px;
+    padding-top: 30px;
+    width: 50%;
+}
+input[type="range"] {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+}

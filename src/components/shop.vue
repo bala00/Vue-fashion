@@ -1,6 +1,6 @@
 <template>
     <div class="about">
-      <section class="about-section-1">
+      <section class="section-1">
         <div class="container clearfix">
           <h3>SHOP</h3>
           
@@ -30,6 +30,7 @@
   
   <!-- Add "scoped" attribute to limit CSS to this component only -->
   <style scoped>
-    @import '../public/css/about.css';
+    @import '../public/css/partCom.css';
+    @import '../public/css/shop.css';
   </style>
       

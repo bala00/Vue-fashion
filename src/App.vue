@@ -18,6 +18,8 @@
       </nav>
     </header>
     
+    
+
     <router-view></router-view>
 
     <footer>
@@ -37,9 +39,9 @@ export default {
         { name: 'ABOUT', url: '/about' },
         { name: 'PROJECT', url: '/project' },
         { name: 'BLOG', url: '/blog' },
+        { name: 'MUSIC', url: '/music' },
         { name: 'SHOP', url: '/shop' }
       ],
-
       footerText: 'vue demo with webpack name Fashion'
     }
   }

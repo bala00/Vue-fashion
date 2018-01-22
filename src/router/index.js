@@ -5,6 +5,7 @@ import About from '@/components/about'
 import Project from '@/components/project'
 import Blog from '@/components/blog'
 import Shop from '@/components/shop'
+import Music from '@/components/music'
 import Login from '@/components/login'
 import Register from '@/components/register'
 import User from '@/components/user'
@@ -37,6 +38,11 @@ export default new Router({
       path: '/shop',
       name: 'Shop',
       component: Shop
+    },
+    {
+      path: '/music',
+      name: 'Music',
+      component: Music
     },
     {
       path: '/login',
