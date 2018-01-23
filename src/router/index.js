@@ -60,5 +60,8 @@ export default new Router({
       component: User,
       meta: {auth: true}
     }
-  ]
+  ],
+  scrollBehavior (to, from, savedPosition) {
+    return { x: 0, y: 0 }
+  }
 })
