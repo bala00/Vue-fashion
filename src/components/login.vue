@@ -51,6 +51,7 @@
             },
             onSubmit: function(event) {
                 // var formData = JSON.stringify(this.user) // 表单数据
+                const self = this;
 
                 if (this.user.mobile == '' || this.user.mobile == null || this.user.mobile.length < 11) {
                     alert('请输入11位手机号')
@@ -73,12 +74,21 @@
                 }).then(function(response) {
                     // success
                     if (response.data.code) {
-                      alert(response.data.msg)
+                        alert(response.data.msg)
                     } else {
                         if (response.status == 200) {
-                          alert('登录成功！')
+                            window.sessionStorage.setItem("isLogin", true);
+
+                            alert('登录成功！');
+                            self.$router.push({
+                                path: '/',
+                                query: {
+                                    isLogin: true
+                                }
+                            });
+
                         } else {
-                          alert('登录失败')
+                            alert('登录失败')
                         }
                     }
                 })

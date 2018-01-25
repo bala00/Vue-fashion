@@ -8,7 +8,11 @@
             <ul>
               <li v-for="item in navLists"><router-link :to="item.url">{{ item.name }}</router-link></li>
               <li class="user-head">
-                <router-link to="/login">
+                <!-- <userSection msgForm="im login"></userSection> -->
+                <router-link v-if="isLogin" to="/user">
+                  <img width="40" height="40" src="/src/public/image/user.png" />
+                </router-link>
+                <router-link v-else to="/login">
                   <img width="40" height="40" src="/src/public/image/user-nologin.png" />
                 </router-link>
               </li>
@@ -36,13 +40,13 @@
     data () {
       return {
         logo: 'Fashion',
-        // isLogin: false,
+        isLogin: window.sessionStorage.getItem('isLogin') || false,
         navLists: [
           { name: 'HOME', url: '/' },
-          { name: 'ABOUT', url: '/about' },
           { name: 'PROJECT', url: '/project' },
           { name: 'BLOG', url: '/blog' },
           { name: 'MUSIC', url: '/music' },
+          { name: 'ACTIVITY', url: '/activity' },
           { name: 'SHOP', url: '/shop' }
         ],
 
@@ -51,6 +55,13 @@
         footerText: 'vue demo with webpack name Fashion'
       }
     },
+    // components: { userSection },
+    // watch: {
+    //   // 如果 `question` 发生改变，这个函数就会运行
+    //   this.$route.query: function (newQuestion, oldQuestion) {
+    //     alert('IM change');
+    //   }
+    // },
     methods: {
       goToTop: function () {
 
@@ -92,11 +103,16 @@
         stop = true;
       }
     },
+    created: function () {
+      alert('im here');
+      this.isLogin = this.$router.query.isLogin
+    },
     mounted: function () {
       this.$nextTick(function () {
+        this.isLogin = window.sessionStorage.getItem('isLogin');
         window.addEventListener('scroll', this.showIcon);  //滚动事件监听  
       })
-    },
+    }
   }
 </script>
 

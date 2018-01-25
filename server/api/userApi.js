@@ -4,13 +4,13 @@ var express = require('express');
 var router = express.Router();
 var mysql = require('mysql');
 var $sql = require('../sqlMap');
+// var auth = require('../../lib/auth.js').getAuth();
 
 // 连接数据库
 var conn = mysql.createConnection(models.mysql);
 
 conn.connect();
 var jsonWrite = function(res, ret) {
-    console.log('ret-->',ret);
 
     if(typeof ret === 'undefined') {
         res.json({
@@ -89,6 +89,7 @@ router.post('/login', (req, res) => {
     var sql = $sql.user.validate;
     var sqlCount = $sql.user.count;
     var params = req.body;
+
     console.log('login-->',params);
     // console.log('11111111');
     
@@ -108,10 +109,11 @@ router.post('/login', (req, res) => {
                     if (params.password == pwd) {
                         
                         req.session.user = {
-                            mobile: params.mobile,
+                            mobile: params.mobile
                         }
                         
-                        jsonWrite(res, {result, isLogin:100});
+                        // jsonWrite(res, {result, isLogin:100});
+                        jsonWrite(res, result);
             
                     }else{
                         jsonWrite(res, '4');

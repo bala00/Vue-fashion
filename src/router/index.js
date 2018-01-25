@@ -1,11 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
 import Home from '@/components/home'
-import About from '@/components/about'
 import Project from '@/components/project'
 import Blog from '@/components/blog'
 import Shop from '@/components/shop'
 import Music from '@/components/music'
+import Activity from '@/components/activity'
 import Login from '@/components/login'
 import Register from '@/components/register'
 import User from '@/components/user'
@@ -20,12 +21,7 @@ export default new Router({
       component: Home
     },
     {
-      path: '/about',
-      name: 'About',
-      component: About
-    },
-    {
-      path: '/project',
+      path: '/project',// alias: '/about1',  ///a 的别名是 /b，意味着，当用户访问 /b 时，URL 会保持为 /b，但是路由匹配则为 /a，就像用户访问 /a 一样。
       name: 'Project',
       component: Project
     },
@@ -43,6 +39,11 @@ export default new Router({
       path: '/music',
       name: 'Music',
       component: Music
+    },
+    {
+      path: '/activity',
+      name: 'Activity',
+      component: Activity
     },
     {
       path: '/login',

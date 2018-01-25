@@ -2,7 +2,7 @@
     <div class="about">
       <section class="section-1">
         <div class="container clearfix">
-          <h3>About The Fashion</h3>
+          <h3>Activity The Fashion</h3>
           <div class="animated-box">
             <transition-group name="cell" tag="div" class="sudoku-container">
               <div v-for="cell in cells" :key="cell.id" class="cell">
@@ -27,7 +27,7 @@
   <script>
     import _ from 'lodash'
     export default {
-      name: 'About',
+      name: 'Activity',
       data () {
         return {
           cells: Array.apply(null, {length: 81}).map(function(_, index) {
@@ -62,6 +62,6 @@
   <!-- Add "scoped" attribute to limit CSS to this component only -->
   <style scoped>
     @import '../public/css/partCom.css';
-    @import '../public/css/about.css';
+    @import '../public/css/activity.css';
   </style>
       
