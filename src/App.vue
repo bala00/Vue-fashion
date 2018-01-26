@@ -8,12 +8,11 @@
             <ul>
               <li v-for="item in navLists"><router-link :to="item.url">{{ item.name }}</router-link></li>
               <li class="user-head">
-                <!-- <userSection msgForm="im login"></userSection> -->
                 <router-link v-if="isLogin" to="/user">
-                  <img width="40" height="40" src="/src/public/image/user.png" />
+                  <img width="40" height="40" src="/src/public/image/user_login.png" />
                 </router-link>
                 <router-link v-else to="/login">
-                  <img width="40" height="40" src="/src/public/image/user-nologin.png" />
+                  <img width="40" height="40" src="/src/public/image/user_nologin.png" />
                 </router-link>
               </li>
               <!-- <li class="ft"><router-link to="/login">登录</router-link><router-link to="/register">注册</router-link></li> -->
@@ -34,13 +33,16 @@
 </template>
 
 <script>
+  import Bus from '../lib/state.js'
+
   var stop = false;
   var timer = null;
+
   export default {
     data () {
       return {
         logo: 'Fashion',
-        isLogin: window.sessionStorage.getItem('isLogin') || false,
+        isLogin: false,
         navLists: [
           { name: 'HOME', url: '/' },
           { name: 'PROJECT', url: '/project' },
@@ -55,22 +57,26 @@
         footerText: 'vue demo with webpack name Fashion'
       }
     },
-    // components: { userSection },
-    // watch: {
-    //   // 如果 `question` 发生改变，这个函数就会运行
-    //   this.$route.query: function (newQuestion, oldQuestion) {
-    //     alert('IM change');
-    //   }
-    // },
+    mounted: function () {
+      this.$nextTick(function () {
+        this.isLogin = window.sessionStorage.getItem('isLogin');
+        window.addEventListener('scroll', this.showIcon);  //滚动事件监听  
+      })
+    },
+    created() {
+      Bus.$on('isLoginEvent', target => { 
+          console.log(typeof(target));  
+          if(target == 1){
+            this.isLogin = true
+          }
+      });  
+    },
     methods: {
       goToTop: function () {
 
-        // console.log('--to top--');
         clearInterval(timer);
 
         timer = setInterval(function(){
-          // console.log('---setInterval start---');
-
           var nowHeight = document.documentElement.scrollTop || document.body.scrollTop;  // 得到当前高度 
           var speed = (0 - nowHeight) / 7;
           speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
@@ -96,22 +102,11 @@
           this.isBackTopShow = false
         }
 
-        //  ('stop-->',stop);
         if (stop) { //STOP  
           clearInterval(timer);
         }  
         stop = true;
       }
-    },
-    created: function () {
-      alert('im here');
-      this.isLogin = this.$router.query.isLogin
-    },
-    mounted: function () {
-      this.$nextTick(function () {
-        this.isLogin = window.sessionStorage.getItem('isLogin');
-        window.addEventListener('scroll', this.showIcon);  //滚动事件监听  
-      })
     }
   }
 </script>

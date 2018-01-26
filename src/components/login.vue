@@ -16,7 +16,7 @@
   
 <script>
     import qs from 'qs'
-    // import Vue from 'vue'
+    import Bus from '../../lib/state.js'
 
     const STORAGE_KEY = 'fashion'
 
@@ -80,12 +80,9 @@
                             window.sessionStorage.setItem("isLogin", true);
 
                             alert('登录成功！');
-                            self.$router.push({
-                                path: '/',
-                                query: {
-                                    isLogin: true
-                                }
-                            });
+                            // 触发组件 A 中的事件
+                            Bus.$emit('isLoginEvent', 1)
+                            self.$router.push('/')
 
                         } else {
                             alert('登录失败')
