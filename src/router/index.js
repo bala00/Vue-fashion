@@ -59,7 +59,11 @@ export default new Router({
       path: '/user',
       name: 'User',
       component: User,
-      meta: {auth: true}
+      meta: {
+        // 添加该字段，表示进入这个路由是需要登录的
+        requireAuth: true,  
+      },           
+
     }
   ],
   scrollBehavior (to, from, savedPosition) {

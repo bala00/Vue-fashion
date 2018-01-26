@@ -18,6 +18,8 @@
 <!-- map: 用于使用指定函数处理数组中的每个元素(或对象的每个属性)，并将处理结果封装为新的数组返回 -->
 
 <script>
+    import Bus from '../../lib/state.js'
+
     export default {
         name: 'User',
         data () {
@@ -25,6 +27,12 @@
                 
             }
         },
+        beforeCreate: function () {
+            if(!window.sessionStorage.isLogin){
+                global.isLogin = false;
+                this.$router.push('/login')
+            }
+        }
     }
 </script>
 

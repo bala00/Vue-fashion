@@ -6,6 +6,10 @@ import App from './App'
 import router from './router'
 import axios from 'axios'
 
+import Bus from '../lib/state.js'
+
+// import '../lib/state.js'
+
 // import Vuex from 'vuex'
 // Vue.use(Vuex)
 
@@ -24,4 +28,24 @@ new Vue({
   router,
   template: '<App/>',
   components: { App }
+})
+
+// 全局导航钩子
+router.beforeEach((to, from, next) => {
+  // 判断该路由是否需要登录权限
+  if (to.meta.requireAuth) {
+      // if(window.sessionStorage.getItem('isLogin')) {  
+      if(global.isLogin) {  
+          next();
+      }
+      else { 
+          next({
+              path: '/login',
+              query: {redirect: to.fullPath}  // 将跳转的路由path作为参数，登录成功后跳转到该路由
+          })
+      }
+  }
+  else {
+      next();
+  }
 })

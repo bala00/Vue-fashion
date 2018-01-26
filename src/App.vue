@@ -43,6 +43,7 @@
       return {
         logo: 'Fashion',
         isLogin: false,
+        // isLogin: false,
         navLists: [
           { name: 'HOME', url: '/' },
           { name: 'PROJECT', url: '/project' },
@@ -59,13 +60,17 @@
     },
     mounted: function () {
       this.$nextTick(function () {
+
+        global.isLogin = window.sessionStorage.getItem('isLogin');
         this.isLogin = window.sessionStorage.getItem('isLogin');
+
         window.addEventListener('scroll', this.showIcon);  //滚动事件监听  
       })
     },
     created() {
       Bus.$on('isLoginEvent', target => {   
           if(target == 1){
+            global.isLogin = true
             this.isLogin = true
           }
       });  
