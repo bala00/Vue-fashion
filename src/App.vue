@@ -64,8 +64,7 @@
       })
     },
     created() {
-      Bus.$on('isLoginEvent', target => { 
-          console.log(typeof(target));  
+      Bus.$on('isLoginEvent', target => {   
           if(target == 1){
             this.isLogin = true
           }
